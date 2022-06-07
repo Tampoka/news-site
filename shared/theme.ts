@@ -27,6 +27,12 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
     box-sizing: border-box;
   }
 
+  :root {
+    --footer-height: 50px;
+    --header-height: 60px;
+  }
+
+
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
@@ -42,6 +48,6 @@ export const GlobalStyle = createGlobalStyle<MainThemeProps>`
   .main {
     padding: 70px 0 20px;
     min-height: calc(100vh - 50px);
-    background-color: chartreuse;
+    background-color: #b3e7e0;
   }
 `

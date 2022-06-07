@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import React from 'react';
 import Head from 'next/head';
@@ -14,7 +13,7 @@ export default function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle theme={theme} />
         <Head>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
           <title>What's Next?!</title>
         </Head>
         <Header />
