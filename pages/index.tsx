@@ -9,9 +9,7 @@ const Home: NextPage = () => {
             <Head>
                 <title>Front page of the Internet</title>
             </Head>
-            <Header/>
-            <main>Hello world from Next!</main>
-            <Footer/>
+            <main>main</main>
         </>
     )
 }
