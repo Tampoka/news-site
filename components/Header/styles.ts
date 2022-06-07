@@ -7,7 +7,7 @@ export const Container = styled.header`
   right: 0;
   height: var(--header-height, 60px);
   padding: 7px 0;
-  background-color: #9a63d3;
+  background-color: #ffb2a8;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 `
 
