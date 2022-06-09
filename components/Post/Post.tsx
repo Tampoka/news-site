@@ -1,4 +1,4 @@
-import { Card, Figure, Title, Content } from "./styles"
+import {Card, Figure, Title, Content} from "./styles"
 
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export const Post = () => {
         <Link href="/post/example" passHref>
             <Card>
                 <Figure>
-                    <img alt="Post photo" src="/image1.jpg" />
+                    <img alt="Post photo" src="/image1.jpg"/>
                 </Figure>
                 <Title>Post title!</Title>
                 <Content>
