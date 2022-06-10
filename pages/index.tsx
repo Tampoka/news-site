@@ -1,4 +1,3 @@
-import type {NextPage} from 'next'
 import Head from 'next/head'
 import {Feed} from '../components/Feed/Feed';
 import {Category, Post} from '../shared/types';
