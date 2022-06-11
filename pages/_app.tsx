@@ -8,7 +8,7 @@ import {Footer} from '../components/Footer';
 import { Center } from '../components/Center';
 import {GlobalStyle, theme} from '../shared/theme';
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }:AppProps) {
   return (
       <ThemeProvider theme={theme}>
         <GlobalStyle theme={theme} />

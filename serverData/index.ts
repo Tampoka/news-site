@@ -1,6 +1,9 @@
-import comments from './comments.json'
-import categories from './categories.json'
-import posts from './posts.json'
+import {Post} from '../shared/types';
+import {Comment} from '../shared/types';
+
+const categories = require("./categories.json")
+const comments = require("./comments.json")
+const posts = require("./posts.json")
 
 import express from 'express'
 const app = express()
@@ -15,7 +18,7 @@ app.get("/posts", (_, res) => {
 
 app.get("/posts/:id", (req, res) => {
     const wantedId = String(req.params.id)
-    const post = posts.find(({ id }) => String(id) === wantedId)
+    const post = posts.find(({ id }:Post) => String(id) === wantedId)
     return res.json(post)
 })
 
@@ -25,7 +28,7 @@ app.get("/categories", (_, res) => {
 
 app.get("/categories/:id", (req, res) => {
     const found = posts.filter(
-        ({ category: id }) => id === req.params.id
+        ({ category: id }:Post) => id === req.params.id
     )
     const categoryPosts = [...found, ...found, ...found]
     return res.json(categoryPosts)
@@ -33,7 +36,7 @@ app.get("/categories/:id", (req, res) => {
 
 app.get("/comments/:post", (req, res) => {
     const postId = Number(req.params.post)
-    const found = comments.filter(({ post }) => post === postId)
+    const found = comments.filter(({ post }:Comment) => post === postId)
     return res.json(found)
 })
 
@@ -46,7 +49,7 @@ app.post("/posts/:id/comments", (req, res) => {
         post: postId,
         time: "Less than a minute ago"
     })
-    return res.json(comments.filter(({ post }) => post === postId))
+    return res.json(comments.filter(({ post }:Comment) => post === postId))
 })
 
 app.listen(port, () =>
