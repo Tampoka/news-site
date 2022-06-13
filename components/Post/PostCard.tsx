@@ -1,4 +1,4 @@
-import {Card, Figure, Title, Content} from "./styles"
+import {Card, Figure, Title, Lead} from "./PostCardStyle"
 import {Post as PostType} from '../../shared/types';
 import Link from 'next/link';
 
@@ -6,7 +6,7 @@ type PostProps = {
     post: PostType
 }
 
-export const Post = ({post}: PostProps) => {
+export const PostCard = ({post}: PostProps) => {
     return (
         <Link href={`/post/${post.id}`} passHref>
             <Card>
@@ -14,7 +14,7 @@ export const Post = ({post}: PostProps) => {
                     <img alt={post.title} src={post.image}/>
                 </Figure>
                 <Title>{post.title}</Title>
-                <Content>{post.lead}</Content>
+                <Lead>{post.lead}</Lead>
             </Card>
         </Link>
     )
