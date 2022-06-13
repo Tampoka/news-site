@@ -3,6 +3,8 @@ import {GetStaticProps} from 'next';
 import {Post as PostType} from '../../shared/types';
 import {postPaths as paths} from '../../shared/staticPaths'
 import {fetchPost} from '../../api/post';
+import {PostBody} from '../../components/Post/PostBody';
+import {Loader} from '../../components/Loader';
 
 type PostProps = {
     post: PostType
@@ -21,14 +23,10 @@ export async function getStaticPaths() {
 }
 
 const Post = ({post}: PostProps) => {
-    const {pathname, query} = useRouter()
+    const router = useRouter()
 
-    return (
-        <div>
-            Pathname: {pathname};<br/>
-            Post Id: {query.id}.
-        </div>
-    )
+    if (router.isFallback) return <Loader/>
+    return <PostBody post={post}/>
 }
 
 export default Post
