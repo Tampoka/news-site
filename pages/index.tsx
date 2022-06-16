@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Feed} from '../components/Feed/Feed';
+import {Feed} from '../components/Feed';
 import {Category, Post} from '../shared/types';
 import {fetchCategories, fetchPosts} from '../api/summary';
 

@@ -1,16 +1,21 @@
+import express from 'express'
 import {Post} from '../shared/types';
 import {Comment} from '../shared/types';
+import bodyParser from "body-parser";
+import cors from "cors";
 
 const categories = require("./categories.json")
 const comments = require("./comments.json")
 const posts = require("./posts.json")
-
-import express from 'express'
 const app = express()
-const port=4000
+
+app.use(cors())
+app.use(bodyParser.json())
+
+
+app.set('port', (process.env.PORT || 4000));
 
 // const dev = process.env.NODE_ENV !== 'production'
-
 
 app.get("/posts", (_, res) => {
     return res.json(posts)
@@ -18,7 +23,7 @@ app.get("/posts", (_, res) => {
 
 app.get("/posts/:id", (req, res) => {
     const wantedId = String(req.params.id)
-    const post = posts.find(({ id }:Post) => String(id) === wantedId)
+    const post = posts.find(({id}: Post) => String(id) === wantedId)
     return res.json(post)
 })
 
@@ -28,7 +33,7 @@ app.get("/categories", (_, res) => {
 
 app.get("/categories/:id", (req, res) => {
     const found = posts.filter(
-        ({ category: id }:Post) => id === req.params.id
+        ({category: id}: Post) => id === req.params.id
     )
     const categoryPosts = [...found, ...found, ...found]
     return res.json(categoryPosts)
@@ -36,7 +41,7 @@ app.get("/categories/:id", (req, res) => {
 
 app.get("/comments/:post", (req, res) => {
     const postId = Number(req.params.post)
-    const found = comments.filter(({ post }:Comment) => post === postId)
+    const found = comments.filter(({post}: Comment) => post === postId)
     return res.json(found)
 })
 
@@ -49,9 +54,9 @@ app.post("/posts/:id/comments", (req, res) => {
         post: postId,
         time: "Less than a minute ago"
     })
-    return res.json(comments.filter(({ post }:Comment) => post === postId))
+    return res.json(comments.filter(({post}: Comment) => post === postId))
 })
 
-app.listen(port, () =>
-    console.log(`DB is running on http://localhost:${port}!`)
+app.listen(app.get('port'), () =>
+    console.log(`DB is running on http://localhost:${app.get('port')}!`)
 )
