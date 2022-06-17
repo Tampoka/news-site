@@ -6,7 +6,7 @@ type FeedProps = {
     categories: Category[]
 }
 
-export const Feed = ({posts,categories}:FeedProps) => {
+export const Feed = ({posts, categories}: FeedProps) => {
     return (
         <>
             {categories.map((currentCategory) => {
@@ -18,6 +18,7 @@ export const Feed = ({posts,categories}:FeedProps) => {
                         key={currentCategory}
                         title={currentCategory}
                         posts={inSection}
+                        isCompact
                     />
                 )
             })}
