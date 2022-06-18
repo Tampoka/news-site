@@ -4,10 +4,10 @@ import { config } from "./config"
 
 export async function fetchComments(
     postId: EntityId
-)//: Promise<Comment[]>
+): Promise<Comment[]>
 {
     const res = await fetch(`${config.baseUrl}/comments/${postId}`)
-    return await res.json()
+    return await res.json() as Promise<Comment[]>
 }
 
 export async function submitComment(
