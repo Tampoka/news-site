@@ -1,14 +1,15 @@
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
 import React from 'react';
 import Head from 'next/head';
-import { ThemeProvider } from "styled-components";
+import {ThemeProvider} from "styled-components";
 
 import {Header} from '../components/Header';
 import {Footer} from '../components/Footer';
-import { Center } from '../components/Center';
+import {Center} from '../components/Center';
 import {GlobalStyle, theme} from '../shared/theme';
+import {store} from '../store';
 
-export default function MyApp({ Component, pageProps }:AppProps) {
+function MyApp({ Component, pageProps }:AppProps) {
   return (
       <ThemeProvider theme={theme}>
         <GlobalStyle theme={theme} />
@@ -26,3 +27,5 @@ export default function MyApp({ Component, pageProps }:AppProps) {
       </ThemeProvider>
   )
 }
+
+export default store.withRedux(MyApp)
