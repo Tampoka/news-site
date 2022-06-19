@@ -1,4 +1,4 @@
-import type {AppProps} from 'next/app'
+import type {AppContext, AppProps} from 'next/app'
 import React from 'react';
 import Head from 'next/head';
 import {ThemeProvider} from "styled-components";
@@ -28,4 +28,11 @@ function MyApp({ Component, pageProps }:AppProps) {
   )
 }
 
+MyApp.getInitialProps = async ({ Component, ctx }: AppContext) => ({
+    pageProps: {
+        ...(Component.getInitialProps
+            ? await Component.getInitialProps(ctx)
+            : {})
+    }
+})
 export default store.withRedux(MyApp)
