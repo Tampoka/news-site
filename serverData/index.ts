@@ -55,8 +55,8 @@ app.post("/posts/:id/comments", (req, res) => {
         post: postId,
         time: "Less than a minute ago"
     })
-    // return res.json(comments.filter(({post}: Comment) => post === postId))
-    return res.sendStatus(201)
+    return res.json(comments.filter(({post}: Comment) => post === postId))
+    // return res.sendStatus(201)
 })
 
 app.listen(app.get('port'), () =>
