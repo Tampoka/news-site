@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+    reactStrictMode: true,
+    images: {
+        domains: ["ichef.bbci.co.uk"],
+        deviceSizes: [320, 640, 860, 1000]
+    }
 }
 
 module.exports = nextConfig
