@@ -12,7 +12,7 @@ export const PostCard = ({post}: PostProps) => {
         <Link href={`/post/${post.id}`} passHref>
             <Card>
                 <Figure>
-                    <Image
+                    {/*  <Image
                         alt={post.title}
                         src={post.image}
                         loading="lazy"
@@ -22,7 +22,8 @@ export const PostCard = ({post}: PostProps) => {
                         width={320}
                         height={180}
                         sizes="(min-width: 1000px) 320px, 100vw"
-                    />
+                    />*/}
+                    <img alt={post.title} src={post.image}/>
                 </Figure>
                 <Title>{post.title}</Title>
                 <Lead>{post.lead}</Lead>

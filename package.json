@@ -1,12 +1,16 @@
 {
   "name": "news-site",
   "version": "0.1.0",
+  "homepage": "https://github.com/Tampoka/news-site",
   "scripts": {
     "build": "next build",
     "start": "next start",
     "serve": "node --loader ts-node/esm ./serverData/index.ts",
     "lint": "next lint",
-    "dev": "concurrently --kill-others \"yarn serve\" \"next\""
+    "dev": "concurrently --kill-others \"yarn serve\" \"next\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "export": "build export"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
@@ -36,6 +40,7 @@
     "cross-env": "^7.0.3",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",
+    "gh-pages": "^4.0.0",
     "typescript": "4.7.3"
   }
 }

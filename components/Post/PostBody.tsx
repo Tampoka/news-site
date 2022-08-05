@@ -14,7 +14,7 @@ export const PostBody = ({post}: PostBodyProps) => {
             <Breadcrumbs post={post}/>
             <Title>{post.title}</Title>
             <Figure>
-                <Image
+                {/*  <Image
                     src={post.image}
                     alt={post.title}
                     loading="lazy"
@@ -22,7 +22,8 @@ export const PostBody = ({post}: PostBodyProps) => {
                     objectFit="cover"
                     objectPosition="center"
                     width={960}
-                    height={340}/>
+                    height={340}/>*/}
+                <img src={post.image} alt={post.title} />
             </Figure>
 
             <Content dangerouslySetInnerHTML={{__html: post.content}}/>
