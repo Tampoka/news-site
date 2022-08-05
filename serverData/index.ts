@@ -3,6 +3,7 @@ import {Post} from '../shared/types';
 import {Comment} from '../shared/types';
 import bodyParser from "body-parser";
 import cors from "cors";
+import fs from 'fs';
 
 const categories = require("./categories.json")
 const comments = require("./comments.json")
@@ -32,7 +33,7 @@ app.get("/categories", (_, res) => {
 })
 
 app.get("/categories/:id", (req, res) => {
-    const { id } = req.params
+    const {id} = req.params
     const found = posts.filter(
         ({category}: Post) => category === id
     )
@@ -48,12 +49,22 @@ app.get("/comments/:post", (req, res) => {
 
 app.post("/posts/:id/comments", (req, res) => {
     const postId = Number(req.params.id)
-    comments.push({
+    const newComment = {
         id: comments.length + 1,
         author: req.body.name,
         content: req.body.comment,
         post: postId,
         time: "Less than a minute ago"
+    }
+    const data = [...comments, newComment]
+    // comments.push({
+    //     id: comments.length + 1,
+    //     author: req.body.name,
+    //     content: req.body.comment,
+    //     post: postId,
+    //     time: "Less than a minute ago"
+    // })
+    fs.writeFile('comments.json', JSON.stringify(data), (err) => {
     })
     // return res.sendStatus(201)
     return res.json(comments.filter(({post}: Comment) => post === postId))
