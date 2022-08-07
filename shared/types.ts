@@ -2,7 +2,8 @@ export type UriString = string
 export type UniqueString = string
 export type EntityId = number | UniqueString
 
-export type Category = "Technology" | "Science" | "Arts"
+// export type Category = "Technology" | "Science" | "Arts"
+export type Category = "科学・IT" | "社会" | "エンタメ・文化"
 export type DateIsoString = string
 
 export type Post = {

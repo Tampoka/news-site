@@ -56,16 +56,10 @@ app.post("/posts/:id/comments", (req, res) => {
         post: postId,
         time: "Less than a minute ago"
     }
-    const data = [...comments, newComment]
-    // comments.push({
-    //     id: comments.length + 1,
-    //     author: req.body.name,
-    //     content: req.body.comment,
-    //     post: postId,
-    //     time: "Less than a minute ago"
-    // })
-    fs.writeFile('comments.json', JSON.stringify(data), (err) => {
-    })
+    // const data = [...comments, newComment]
+    comments.push(newComment)
+    console.log(comments)
+    // fs.writeFile('comments.json', JSON.stringify(data), (err) => {})
     // return res.sendStatus(201)
     return res.json(comments.filter(({post}: Comment) => post === postId))
 })

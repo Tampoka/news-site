@@ -32,6 +32,8 @@ export const CommentForm: FC<CommentFormProps> = ({post}) => {
         setName("")
 
         if (response.status === 200) {
+            debugger
+
             dispatch({type: UPDATE_COMMENTS_ACTION, comments})
         }
     }

@@ -5,7 +5,8 @@ const nextConfig = {
         domains: ["ichef.bbci.co.uk"],
         deviceSizes: [320, 640, 860, 1000]
     },
-    distDir: "build"
+    distDir: "build",
+    defaultLocale: "ja"
 }
 
 module.exports = nextConfig
