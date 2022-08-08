@@ -10,7 +10,7 @@ export const Breadcrumbs = ({post}: BreadcrumbsProps) => {
     return (
         <Container>
             <Link href="/">
-                <a>Home</a>
+                <a>ホーム</a>
             </Link>
             <span>
 </span>

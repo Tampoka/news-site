@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }:AppProps) {
         <GlobalStyle theme={theme} />
         <Head>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-          <title>What's Next?!</title>
+          <title>Nextニュース!</title>
         </Head>
         <Header />
         <main className="main">
