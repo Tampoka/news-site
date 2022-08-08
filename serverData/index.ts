@@ -58,7 +58,6 @@ app.post("/posts/:id/comments", (req, res) => {
     }
     // const data = [...comments, newComment]
     comments.push(newComment)
-    console.log(comments)
     // fs.writeFile('comments.json', JSON.stringify(data), (err) => {})
     // return res.sendStatus(201)
     return res.json(comments.filter(({post}: Comment) => post === postId))

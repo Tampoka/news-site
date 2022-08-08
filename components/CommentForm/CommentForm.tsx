@@ -40,7 +40,7 @@ export const CommentForm: FC<CommentFormProps> = ({post}) => {
 
     return (
         <Form onSubmit={submit}>
-            <h3>Your comment</h3>
+            <h3>コメントを書く</h3>
             <input
                 type="text"
                 name="name"
