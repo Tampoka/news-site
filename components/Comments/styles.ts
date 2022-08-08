@@ -2,6 +2,10 @@ import styled from "styled-components"
 
 export const Container = styled.section`
   margin: 1.5rem 0;
+
+  .comments-count {
+    text-decoration: underline;
+  }
 `
 
 export const List = styled.ul`
