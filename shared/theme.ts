@@ -8,7 +8,8 @@ export const theme = {
     colors: {
         orange: "#f4ae40",
         blue: "#387af5",
-        pink: "#eb57a3"
+        pink: "#eb57a3",
+        gray:"#605f5f"
     }
 }
 
