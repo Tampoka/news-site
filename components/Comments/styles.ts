@@ -5,6 +5,7 @@ export const Container = styled.section`
 
   .comments-count {
     text-decoration: underline;
+    cursor: pointer;
   }
 `
 

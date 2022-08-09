@@ -12,11 +12,12 @@ type CommentsProps = {
 export const Comments = ({post, comments}: CommentsProps) => {
     const [show, setShow] = useState(false)
     const toggleShowComments = () => setShow(prev => !prev)
-    const commentsMessage = comments.length ? `${comments.length}件のコメント` : 'コメントがありません。'
+    const commentsMessage = comments.length ? `${comments.length}件のコメント` : 'コメントがありません'
     return (
         <Container id="comments">
-            <h3 onClick={toggleShowComments} className="comments-count">{commentsMessage}</h3>
-            {show && <List>
+            <h3 onClick={toggleShowComments}
+                className="comments-count">{commentsMessage}</h3>
+            {show && comments.length > 0 && <List>
                 {comments.map((comment) => (
                     <Item key={comment.id}>
                         <Comment comment={comment}/>
