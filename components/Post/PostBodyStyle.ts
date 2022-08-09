@@ -37,6 +37,11 @@ export const Content = styled.div`
   font-size: 1.25rem;
   line-height: 1.4;
   max-width: 800px;
+
+  blockquote {
+    background: hsl(171, 50%, 87%);
+    padding: 10px;
+  }
 `;
 
 export const Meta = styled.footer`

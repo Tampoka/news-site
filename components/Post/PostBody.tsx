@@ -35,7 +35,7 @@ export const PostBody = ({post}: PostBodyProps) => {
                     <a>{post.category}</a>
                 </Link>
                 <span>&middot;</span>
-                <a href={post.source}>Source</a>
+                <a href={post.source}>ソース</a>
             </Meta>
         </div>
     )
