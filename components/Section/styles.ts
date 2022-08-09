@@ -4,6 +4,7 @@ export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  //column-gap: 16px;
 
   &:after {
     content: "";

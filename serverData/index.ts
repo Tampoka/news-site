@@ -54,7 +54,7 @@ app.post("/posts/:id/comments", (req, res) => {
         author: req.body.name,
         content: req.body.comment,
         post: postId,
-        time: "Less than a minute ago"
+        time: "数分前"
     }
     // const data = [...comments, newComment]
     comments.push(newComment)

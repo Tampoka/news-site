@@ -32,8 +32,6 @@ export const CommentForm: FC<CommentFormProps> = ({post}) => {
         setName("")
 
         if (response.status === 200) {
-            debugger
-
             dispatch({type: UPDATE_COMMENTS_ACTION, comments})
         }
     }
@@ -45,18 +43,18 @@ export const CommentForm: FC<CommentFormProps> = ({post}) => {
                 type="text"
                 name="name"
                 value={name}
-                placeholder="Your name"
+                placeholder="ニックネーム"
                 onChange={(e) => setName(e.target.value)}
                 required
             />
             <textarea
                 name="comment"
                 value={value}
-                placeholder="What do you think?"
+                placeholder="この記事に関するあなたの意見や疑問"
                 onChange={(e) => setValue(e.target.value)}
                 required
             />
-            {loading ? <span>Submitting...</span> : <button>Submit</button>}
+            {loading ? <span>Submitting...</span> : <button>投稿する</button>}
         </Form>
     )
 }
