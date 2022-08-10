@@ -23,7 +23,7 @@ export const PostBody = ({post}: PostBodyProps) => {
                     objectPosition="center"
                     width={960}
                     height={340}/>*/}
-                <img src={post.image} alt={post.title} />
+                <img src={post.image} alt={post.title}/>
             </Figure>
 
             <Content dangerouslySetInnerHTML={{__html: post.content}}/>

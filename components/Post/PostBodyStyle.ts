@@ -42,6 +42,10 @@ export const Content = styled.div`
     background: hsl(171, 50%, 87%);
     padding: 10px;
   }
+  cite{
+  display: flex;
+    justify-content: right;
+  }
 `;
 
 export const Meta = styled.footer`
