@@ -9,6 +9,7 @@ export const Card = styled.a`
   color: black;
   text-decoration: none;
   transition: all 0.2s;
+  min-height: 300px;
 
   &:hover {
     color: black;
