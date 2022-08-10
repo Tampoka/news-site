@@ -1,14 +1,17 @@
 import Link from "next/link"
-import Image from "next/image"
 import {Post} from "../../shared/types"
-import {Title, Figure, Content, Meta} from "./PostBodyStyle"
+import {Content, Figure, Meta, ShowMore, Title} from "./PostBodyStyle"
 import {Breadcrumbs} from '../Breadcrumbs';
+import {useState} from 'react';
 
 type PostBodyProps = {
     post: Post
 }
 
 export const PostBody = ({post}: PostBodyProps) => {
+    const [fullText,setFullText]=useState(false)
+    const minText=`${post.content.substring(0,500)}...`
+    const textToDisplay=fullText?post.content:minText
     return (
         <div>
             <Breadcrumbs post={post}/>
@@ -25,9 +28,8 @@ export const PostBody = ({post}: PostBodyProps) => {
                     height={340}/>*/}
                 <img src={post.image} alt={post.title}/>
             </Figure>
-
-            <Content dangerouslySetInnerHTML={{__html: post.content}}/>
-
+            <Content dangerouslySetInnerHTML={{__html: textToDisplay}}/>
+            <ShowMore onClick={()=>setFullText(true)} >{fullText?"":"続きを読む"}</ShowMore>
             <Meta>
                 <span>{post.date}</span>
                 <span>&middot;</span>

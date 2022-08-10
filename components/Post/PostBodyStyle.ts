@@ -42,9 +42,14 @@ export const Content = styled.div`
     background: hsl(171, 50%, 87%);
     padding: 10px;
   }
-  cite{
-  display: flex;
+
+  cite {
+    display: flex;
     justify-content: right;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 `;
 
@@ -55,3 +60,9 @@ export const Meta = styled.footer`
     margin-right: 0.3em;
   }
 `;
+
+export const ShowMore = styled.div`{
+  cursor: pointer;
+  margin: 10px 0;
+  color: ${(p) => p.theme.colors.blue};
+}`
