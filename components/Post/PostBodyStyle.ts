@@ -34,6 +34,12 @@ export const Figure = styled.figure`
 `;
 
 export const Content = styled.div`
+  overflow: hidden;
+
+  .minText {
+    max-height: 100px;
+  }
+
   font-size: 1.25rem;
   line-height: 1.4;
   max-width: 800px;
@@ -63,6 +69,6 @@ export const Meta = styled.footer`
 
 export const ShowMore = styled.div`{
   cursor: pointer;
-  margin: 10px 0;
+  margin-bottom: 10px;
   color: ${(p) => p.theme.colors.blue};
 }`

@@ -9,10 +9,9 @@ type PostBodyProps = {
 }
 
 export const PostBody = ({post}: PostBodyProps) => {
-    // const [fullText,setFullText]=useState(false)
-    // const minText=`${post.content.substring(0,500)}...`
-    // const textToDisplay=fullText?post.content:minText
+    const [fullText, setFullText] = useState(false)
 
+    const textClass = !fullText ? 'minText' : ''
     return (
         <div>
             <Breadcrumbs post={post}/>
@@ -29,9 +28,12 @@ export const PostBody = ({post}: PostBodyProps) => {
                     height={340}/>*/}
                 <img src={post.image} alt={post.title}/>
             </Figure>
-            {/*<Content dangerouslySetInnerHTML={{__html: textToDisplay}}/>*/}
-            <Content dangerouslySetInnerHTML={{__html: post.content}}/>
-            {/*<ShowMore onClick={()=>setFullText(true)} >{fullText?"":"続きを読む"}</ShowMore>*/}
+            <Content>
+                <div dangerouslySetInnerHTML={{__html: post.content}}
+                     className={textClass}/>
+            </Content>
+            <ShowMore
+                onClick={() => setFullText(true)}>{fullText ? "" : "続きを読む"}</ShowMore>
             <Meta>
                 <span>{post.date}</span>
                 <span>&middot;</span>
