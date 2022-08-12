@@ -22,8 +22,10 @@ type CategoryStaticPath = {
 }
 
 const categoriesToPreRender: Category[] = [
-    "科学・IT", "社会", "経済"
+    "科学・IT",
+    "社会",
+    "経済"
 ]
 export const categoryPaths: CategoryStaticPath[] = categoriesToPreRender.map(
-    (category) => ({params: {id: category}})
+    (category) => ({params: {id: encodeURIComponent(category) as Category}})
 )
