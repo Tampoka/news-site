@@ -19,7 +19,7 @@ export const Comments = ({post, comments}: CommentsProps) => {
                 className="comments-count">{commentsMessage}</h3>
             {show && comments.length > 0 && <List>
                 {comments.map((comment) => (
-                    <Item key={comment.id}>
+                    <Item key={comment._id}>
                         <Comment comment={comment}/>
                     </Item>
                 ))}

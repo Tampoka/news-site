@@ -9,7 +9,7 @@ type PostStaticPath = {
 const staticPostsIdList: EntityId[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 export const postPaths: PostStaticPath[] = staticPostsIdList.map(
     (id) => ({
-        params: { id: String(id) }
+        params: {id: String(id)}
     })
 )
 
@@ -22,10 +22,8 @@ type CategoryStaticPath = {
 }
 
 const categoriesToPreRender: Category[] = [
-    "Science",
-    "Technology",
-    "Arts"
+    "科学・IT", "社会", "経済"
 ]
 export const categoryPaths: CategoryStaticPath[] = categoriesToPreRender.map(
-    (category) => ({ params: { id: category } })
+    (category) => ({params: {id: category}})
 )

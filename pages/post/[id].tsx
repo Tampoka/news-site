@@ -51,7 +51,7 @@ const Post: NextPage = () => {
     return (
         <>
             <PostBody post={post}/>
-            <Comments comments={comments} post={post.id}/>
+            <Comments comments={comments} post={post._id}/>
         </>
     )
 }
