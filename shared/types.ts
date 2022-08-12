@@ -8,7 +8,7 @@ export type Category = "科学・IT" | "社会" | "経済"
 export type DateIsoString = string
 
 export type Post = {
-    id: EntityId
+    _id: EntityId
     date: DateIsoString
     category: Category
     title: string
@@ -21,7 +21,7 @@ export type Post = {
 export type Person = string
 export type RelativeTime = string
 export type Comment = {
-    id: EntityId
+    _id: EntityId
     author: Person
     content: string
     time: RelativeTime
