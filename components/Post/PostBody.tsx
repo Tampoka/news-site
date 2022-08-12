@@ -9,9 +9,10 @@ type PostBodyProps = {
 }
 
 export const PostBody = ({post}: PostBodyProps) => {
-    const [fullText,setFullText]=useState(false)
-    const minText=`${post.content.substring(0,500)}...`
-    const textToDisplay=fullText?post.content:minText
+    // const [fullText,setFullText]=useState(false)
+    // const minText=`${post.content.substring(0,500)}...`
+    // const textToDisplay=fullText?post.content:minText
+
     return (
         <div>
             <Breadcrumbs post={post}/>
@@ -28,8 +29,9 @@ export const PostBody = ({post}: PostBodyProps) => {
                     height={340}/>*/}
                 <img src={post.image} alt={post.title}/>
             </Figure>
-            <Content dangerouslySetInnerHTML={{__html: textToDisplay}}/>
-            <ShowMore onClick={()=>setFullText(true)} >{fullText?"":"続きを読む"}</ShowMore>
+            {/*<Content dangerouslySetInnerHTML={{__html: textToDisplay}}/>*/}
+            <Content dangerouslySetInnerHTML={{__html: post.content}}/>
+            {/*<ShowMore onClick={()=>setFullText(true)} >{fullText?"":"続きを読む"}</ShowMore>*/}
             <Meta>
                 <span>{post.date}</span>
                 <span>&middot;</span>
@@ -37,7 +39,8 @@ export const PostBody = ({post}: PostBodyProps) => {
                     <a>{post.category}</a>
                 </Link>
                 <span>&middot;</span>
-                <a href={post.source}>ソース</a>
+                <a href={post.source} target="_blank"
+                   rel="noopener noreferrer">ソース</a>
             </Meta>
         </div>
     )
