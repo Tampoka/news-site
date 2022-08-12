@@ -9,26 +9,25 @@ import {Center} from '../components/Center';
 import {GlobalStyle, theme} from '../shared/theme';
 import {store} from '../store';
 
-function MyApp({ Component, pageProps }:AppProps) {
-  return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle theme={theme} />
-        <Head>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-          <title>Nextニュース!</title>
-        </Head>
-        <Header />
-        <main className="main">
-          <Center>
-            <Component {...pageProps} />
-          </Center>
-        </main>
-        <Footer />
-      </ThemeProvider>
-  )
+function MyApp({Component, pageProps}: AppProps) {
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyle theme={theme}/>
+            <Head>
+                <title>Nextニュース!</title>
+            </Head>
+            <Header/>
+            <main className="main">
+                <Center>
+                    <Component {...pageProps} />
+                </Center>
+            </main>
+            <Footer/>
+        </ThemeProvider>
+    )
 }
 
-MyApp.getInitialProps = async ({ Component, ctx }: AppContext) => ({
+MyApp.getInitialProps = async ({Component, ctx}: AppContext) => ({
     pageProps: {
         ...(Component.getInitialProps
             ? await Component.getInitialProps(ctx)

@@ -8,7 +8,6 @@ export const Header = () => {
             <Center>
                 <Logo>
                     <Link href="/">
-                        {/* eslint-disable-next-line react/no-unescaped-entities */}
                         <a>Nextニュース!</a>
                     </Link>
                 </Logo>
