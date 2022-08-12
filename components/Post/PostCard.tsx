@@ -9,7 +9,7 @@ type PostProps = {
 
 export const PostCard = ({post}: PostProps) => {
     return (
-        <Link href={`/post/${post.id}`} passHref>
+        <Link href={`/post/${post._id}`} passHref>
             <Card>
                 <Figure>
                     {/*  <Image

@@ -16,7 +16,7 @@ export const Section = ({title, posts, isCompact = false}: SectionProps) => {
             <Title>{title}</Title>
             <Grid>
                 {posts.map((post) => (
-                    <PostCard key={post.id} post={post}/>
+                    <PostCard key={post._id} post={post}/>
                 ))}
             </Grid>
             {isCompact && (
