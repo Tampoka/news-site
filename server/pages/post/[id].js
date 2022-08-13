@@ -38,7 +38,7 @@ const Loader = () => {
 
 /***/ }),
 
-/***/ 1029:
+/***/ 9456:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -58,8 +58,6 @@ async function fetchPost(id) {
   const res = await fetch(`${config/* config.baseUrl */.v.baseUrl}/posts/${id}`);
   return await res.json();
 }
-// EXTERNAL MODULE: ./components/Post/PostBody.tsx + 4 modules
-var PostBody = __webpack_require__(6032);
 // EXTERNAL MODULE: ./components/Loader/index.ts + 2 modules
 var Loader = __webpack_require__(4684);
 // EXTERNAL MODULE: external "node-fetch"
@@ -84,6 +82,16 @@ async function submitComment(postId, name, comment) {
     })
   });
 }
+// EXTERNAL MODULE: ./store/index.ts
+var store = __webpack_require__(2188);
+// EXTERNAL MODULE: ./store/comments.ts
+var store_comments = __webpack_require__(182);
+// EXTERNAL MODULE: ./store/post.ts
+var store_post = __webpack_require__(8498);
+;// CONCATENATED MODULE: external "react-redux"
+const external_react_redux_namespaceObject = require("react-redux");
+// EXTERNAL MODULE: ./components/Post/index.ts + 7 modules
+var Post = __webpack_require__(2341);
 // EXTERNAL MODULE: external "styled-components"
 var external_styled_components_ = __webpack_require__(7518);
 var external_styled_components_default = /*#__PURE__*/__webpack_require__.n(external_styled_components_);
@@ -109,10 +117,6 @@ const Form = external_styled_components_default().form.withConfig({
   displayName: "styles__Form",
   componentId: "sc-tm2hed-0"
 })(["margin-top:10px;input,textarea{display:block;width:100%;border:1px solid rgba(0,0,0,0.1);box-shadow:none;resize:none;font-size:1em;padding:5px;border-radius:2px;margin:10px 0;}button{border:0;font-size:1rem;padding:8px 20px;border-radius:6px;background-color:#fff;box-shadow:0 0 0 1px rgba(0,0,0,0.035),0 4px 25px rgba(0,0,0,0.07);transition:all 0.2s;cursor:pointer;&:hover{box-shadow:0 0 0 1px rgba(0,0,0,0.035),0 6px 35px rgba(0,0,0,0.2);}}"]);
-;// CONCATENATED MODULE: external "react-redux"
-const external_react_redux_namespaceObject = require("react-redux");
-// EXTERNAL MODULE: ./store/comments.ts
-var store_comments = __webpack_require__(182);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./components/CommentForm/CommentForm.tsx
@@ -261,10 +265,8 @@ const Comments = ({
     })]
   });
 };
-// EXTERNAL MODULE: ./store/index.ts
-var store = __webpack_require__(2188);
-// EXTERNAL MODULE: ./store/post.ts
-var store_post = __webpack_require__(8498);
+;// CONCATENATED MODULE: ./components/Comments/index.ts
+
 ;// CONCATENATED MODULE: ./pages/post/[id].tsx
 
 
@@ -311,14 +313,14 @@ const getServerSideProps = store/* store.getServerSideProps */.h.getServerSidePr
     return {paths, fallback: true}
 }*/
 
-const Post = () => {
+const _id_Post = () => {
   const {
     post,
     comments
   } = (0,external_react_redux_namespaceObject.useSelector)(state => state);
   if (!post) return /*#__PURE__*/jsx_runtime_.jsx(Loader/* Loader */.a, {});
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-    children: [/*#__PURE__*/jsx_runtime_.jsx(PostBody/* PostBody */.y, {
+    children: [/*#__PURE__*/jsx_runtime_.jsx(Post/* PostBody */.y, {
       post: post
     }), /*#__PURE__*/jsx_runtime_.jsx(Comments, {
       comments: comments,
@@ -327,7 +329,7 @@ const Post = () => {
   });
 };
 
-/* harmony default export */ const _id_ = (Post);
+/* harmony default export */ const _id_ = (_id_Post);
 
 /***/ }),
 
@@ -513,7 +515,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,370,188], () => (__webpack_exec__(1029)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188], () => (__webpack_exec__(9456)));
 module.exports = __webpack_exports__;
 
 })();

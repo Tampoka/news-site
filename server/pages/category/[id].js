@@ -68,8 +68,8 @@ const categoryPaths = categoriesToPreRender.map(category => ({
 }));
 // EXTERNAL MODULE: ./components/Loader/index.ts + 2 modules
 var Loader = __webpack_require__(4684);
-// EXTERNAL MODULE: ./components/Section/index.ts + 5 modules
-var Section = __webpack_require__(8686);
+// EXTERNAL MODULE: ./components/Section/index.ts + 2 modules
+var Section = __webpack_require__(1423);
 // EXTERNAL MODULE: external "node-fetch"
 var external_node_fetch_ = __webpack_require__(4809);
 var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
@@ -292,7 +292,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,370,686], () => (__webpack_exec__(3638)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,423], () => (__webpack_exec__(3638)));
 module.exports = __webpack_exports__;
 
 })();

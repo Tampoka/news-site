@@ -20,8 +20,8 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external "next/head"
 var head_ = __webpack_require__(968);
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
-// EXTERNAL MODULE: ./components/Section/index.ts + 5 modules
-var Section = __webpack_require__(8686);
+// EXTERNAL MODULE: ./components/Section/index.ts + 2 modules
+var Section = __webpack_require__(1423);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./components/Feed/Feed.tsx
@@ -273,7 +273,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,370,686], () => (__webpack_exec__(4369)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,423], () => (__webpack_exec__(4369)));
 module.exports = __webpack_exports__;
 
 })();
