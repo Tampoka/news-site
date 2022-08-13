@@ -1,16 +1,14 @@
-import {useRouter} from "next/router";
-import {GetServerSideProps, GetStaticProps, NextPage} from 'next';
-import {Post as PostType, Comment} from '../../shared/types';
-import {postPaths as paths} from '../../shared/staticPaths'
+import {NextPage} from 'next';
+import {Comment, Post as PostType} from '../../shared/types';
 import {fetchPost} from '../../api/post';
-import {PostBody} from '../../components/Post/PostBody';
 import {Loader} from '../../components/Loader';
 import {fetchComments} from '../../api/comments';
-import {Comments} from '../../components/Comments/Comments';
 import {State, store} from '../../store';
 import {UPDATE_COMMENTS_ACTION} from '../../store/comments';
 import {UPDATE_POST_ACTION} from '../../store/post';
 import {useSelector} from 'react-redux';
+import {PostBody} from '../../components/Post';
+import {Comments} from '../../components/Comments';
 
 type PostProps = {
     post: PostType
@@ -36,13 +34,13 @@ export const getServerSideProps = store.getServerSideProps(
 
             store.dispatch({type: UPDATE_POST_ACTION, post})
             store.dispatch({type: UPDATE_COMMENTS_ACTION, comments})
-            return {props: {post, comments}};
+            return {props: {post, comments}}
         }
 )
 
-// export async function getStaticPaths() {
-//     return {paths, fallback: true}
-// }
+/*export async function getStaticPaths() {
+    return {paths, fallback: true}
+}*/
 
 const Post: NextPage = () => {
     const {post, comments} = useSelector<State, State>(state => state)

@@ -1,15 +1,14 @@
 {
   "name": "news-site",
   "version": "0.1.0",
-  "homepage": "https://github.com/Tampoka/news-site",
+  "homepage": "https://tampoka.github.io/news-site/",
   "scripts": {
     "build": "next build",
     "start": "next start",
-    "serve": "node --loader ts-node/esm ./serverData/index.ts",
     "lint": "next lint",
     "dev": "next dev",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d out -t true",
     "export": "build export"
   },
   "dependencies": {
@@ -30,6 +29,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-redux": "^8.0.2",
+    "sharp": "^0.30.7",
     "styled-components": "^5.3.5",
     "ts-node": "^10.8.1"
   },

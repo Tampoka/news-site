@@ -13,7 +13,7 @@ export async function submitComment(
     postId: EntityId,
     name: Person,
     comment: string
-)//: Promise<Response>
+)
 {
     return await fetch(`${config.baseUrl}/posts/${postId}/comments`, {
         method: "POST",
