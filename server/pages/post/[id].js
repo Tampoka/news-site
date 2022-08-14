@@ -38,7 +38,7 @@ const Loader = () => {
 
 /***/ }),
 
-/***/ 9456:
+/***/ 2428:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -71,7 +71,6 @@ async function fetchComments(postId) {
   return await res.json();
 }
 async function submitComment(postId, name, comment) {
-  console.log(`postId in submit: ${postId}`);
   const res = await external_node_fetch_default()(`${config/* config.baseUrl */.v.baseUrl}/posts/${postId}/comments`, {
     method: "POST",
     headers: {
@@ -90,8 +89,8 @@ var store = __webpack_require__(2188);
 var store_comments = __webpack_require__(182);
 // EXTERNAL MODULE: ./store/post.ts
 var store_post = __webpack_require__(8498);
-;// CONCATENATED MODULE: external "react-redux"
-const external_react_redux_namespaceObject = require("react-redux");
+// EXTERNAL MODULE: external "react-redux"
+var external_react_redux_ = __webpack_require__(6022);
 // EXTERNAL MODULE: ./components/Post/index.ts + 7 modules
 var Post = __webpack_require__(2341);
 // EXTERNAL MODULE: external "styled-components"
@@ -132,7 +131,7 @@ var jsx_runtime_ = __webpack_require__(997);
 const CommentForm = ({
   post
 }) => {
-  const dispatch = (0,external_react_redux_namespaceObject.useDispatch)();
+  const dispatch = (0,external_react_redux_.useDispatch)();
   const {
     0: loading,
     1: setLoading
@@ -319,7 +318,7 @@ const _id_Post = () => {
   const {
     post,
     comments
-  } = (0,external_react_redux_namespaceObject.useSelector)(state => state);
+  } = (0,external_react_redux_.useSelector)(state => state);
   if (!post) return /*#__PURE__*/jsx_runtime_.jsx(Loader/* Loader */.a, {});
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
     children: [/*#__PURE__*/jsx_runtime_.jsx(Post/* PostBody */.y, {
@@ -489,6 +488,13 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 6022:
+/***/ ((module) => {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module) => {
 
@@ -517,7 +523,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188], () => (__webpack_exec__(9456)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188], () => (__webpack_exec__(2428)));
 module.exports = __webpack_exports__;
 
 })();

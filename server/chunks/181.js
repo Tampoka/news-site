@@ -9,9 +9,8 @@ exports.modules = {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "v": () => (/* binding */ config)
 /* harmony export */ });
-const devMode = true;
 const config = {
-  baseUrl: devMode ? "http://localhost:4040" : "https://zombi-news.herokuapp.com"
+  baseUrl: "https://zombi-news.herokuapp.com"
 };
 
 /***/ }),

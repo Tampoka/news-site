@@ -38,7 +38,7 @@ const Loader = () => {
 
 /***/ }),
 
-/***/ 919:
+/***/ 1567:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -50,8 +50,6 @@ __webpack_require__.d(__webpack_exports__, {
   "getServerSideProps": () => (/* binding */ getServerSideProps)
 });
 
-;// CONCATENATED MODULE: external "next/router"
-const router_namespaceObject = require("next/router");
 // EXTERNAL MODULE: ./components/Loader/index.ts + 2 modules
 var Loader = __webpack_require__(4684);
 // EXTERNAL MODULE: ./components/Section/index.ts + 2 modules
@@ -70,6 +68,12 @@ async function fetchPosts(categoryId) {
 }
 // EXTERNAL MODULE: ./store/index.ts
 var store = __webpack_require__(2188);
+// EXTERNAL MODULE: ./store/categoryPosts.ts
+var store_categoryPosts = __webpack_require__(7098);
+// EXTERNAL MODULE: external "react-redux"
+var external_react_redux_ = __webpack_require__(6022);
+// EXTERNAL MODULE: ./store/category.ts
+var store_category = __webpack_require__(1848);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./pages/category/[id].tsx
@@ -79,26 +83,39 @@ var jsx_runtime_ = __webpack_require__(997);
 
 
 
-const getServerSideProps = store/* store.getServerSideProps */.h.getServerSideProps(_store => async ({
+
+
+const getServerSideProps = store/* store.getServerSideProps */.h.getServerSideProps(store => async ({
   params
 }) => {
   if (typeof (params === null || params === void 0 ? void 0 : params.id) !== "string") throw new Error("Unexpected id");
-  const posts = await fetchPosts(params.id);
+  const categoryPosts = await fetchPosts(params.id);
+  const category = params.id;
+  store.dispatch({
+    type: store_category/* UPDATE_CATEGORY_ACTION */.Q,
+    category
+  });
+  store.dispatch({
+    type: store_categoryPosts/* UPDATE_CATEGORY_POSTS_ACTION */.v,
+    categoryPosts
+  });
   return {
     props: {
-      posts
+      categoryPosts,
+      category
     }
   };
 });
 
-const Category = ({
-  posts
-}) => {
-  const router = (0,router_namespaceObject.useRouter)();
-  if (router.isFallback) return /*#__PURE__*/jsx_runtime_.jsx(Loader/* Loader */.a, {});
+const Category = () => {
+  const {
+    categoryPosts,
+    category
+  } = (0,external_react_redux_.useSelector)(state => state);
+  if (!categoryPosts) return /*#__PURE__*/jsx_runtime_.jsx(Loader/* Loader */.a, {});
   return /*#__PURE__*/jsx_runtime_.jsx(Section/* Section */.$, {
-    posts: posts,
-    title: String(router.query.id)
+    posts: categoryPosts,
+    title: String(category)
   });
 };
 
@@ -260,6 +277,13 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 6022:
+/***/ ((module) => {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module) => {
 
@@ -288,7 +312,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188,423], () => (__webpack_exec__(919)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188,423], () => (__webpack_exec__(1567)));
 module.exports = __webpack_exports__;
 
 })();
