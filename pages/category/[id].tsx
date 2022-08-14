@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
                                                                         params
                                                                     }) => {
     if (typeof params!.id !== "string") throw new Error("Unexpected id")
-    const posts = await fetchPosts(params!.id)
+    const posts = await fetchPosts(encodeURI(params!.id))
     return {props: {posts}}
 }
 
