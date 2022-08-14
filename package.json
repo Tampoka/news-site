@@ -1,14 +1,14 @@
 {
   "name": "news-site",
   "version": "0.1.0",
-  "homepage": "https://tampoka.github.io/news-site/",
+  "homepage": "https://tampoka.github.io/news-site",
   "scripts": {
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "dev": "next dev",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -t true",
+    "deploy": "gh-pages -d build",
     "export": "build export"
   },
   "dependencies": {

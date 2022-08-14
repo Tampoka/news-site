@@ -1,5 +1,5 @@
-const devMode = true
+const devMode = false
 
 export const config = {
-    baseUrl: devMode ? process.env.REACT_APP_DEV_BASE_URL : process.env.REACT_APP_BASE_URL
+    baseUrl: devMode ? process.env.NEXT_PUBLIC_DEV_BASE_URL : process.env.NEXT_PUBLIC_BASE_URL
 }

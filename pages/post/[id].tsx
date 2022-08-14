@@ -15,13 +15,16 @@ type PostProps = {
     comments: Comment[]
 }
 
-/*export const getStaticProps: GetStaticProps<PostProps> = async ({
+/*
+export const getStaticProps: GetStaticProps<PostProps> = async ({
                                                                     params
                                                                 }) => {
     if (typeof params?.id !== "string") throw new Error("Unexpected id")
     const post = await fetchPost(params?.id)
-    return {props: {post}}
-}*/
+    const comments = await fetchComments(params.id) as Comment[]
+    return {props: {post,comments}}
+}
+*/
 
 export const getServerSideProps = store.getServerSideProps(
     (store) =>

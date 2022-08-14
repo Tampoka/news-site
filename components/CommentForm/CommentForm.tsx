@@ -20,19 +20,15 @@ export const CommentForm: FC<CommentFormProps> = ({post}) => {
     async function submit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setLoading(true)
-
-        const response = await submitComment(post, name, value)
-        const comments = await response.json()
-        setLoading(false)
-        /*   if (status === 201) {
-               location.hash = "comments"
-               location.reload()
-           }*/
-        setValue("")
-        setName("")
-
-        if (response.status === 200) {
+        try {
+            const comments = await submitComment(post, name, value)
             dispatch({type: UPDATE_COMMENTS_ACTION, comments})
+        } catch (e: any) {
+            console.log(e.message)
+        } finally {
+            setLoading(false)
+            setValue("")
+            setName("")
         }
     }
 

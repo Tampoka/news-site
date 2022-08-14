@@ -27,5 +27,5 @@ const categoriesToPreRender: Category[] = [
     "経済"
 ]
 export const categoryPaths: CategoryStaticPath[] = categoriesToPreRender.map(
-    (category) => ({params: {id: encodeURIComponent(category) as Category}})
+    (category) => ({params: {id: category}})
 )

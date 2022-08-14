@@ -13,11 +13,12 @@ export async function submitComment(
     postId: EntityId,
     name: Person,
     comment: string
-)
-{
-    return await fetch(`${config.baseUrl}/posts/${postId}/comments`, {
+) {
+    console.log(`postId in submit: ${postId}`)
+    const res = await fetch(`${config.baseUrl}/posts/${postId}/comments`, {
         method: "POST",
         headers: {"Content-Type": "application/json;charset=utf-8"},
         body: JSON.stringify({name, comment})
     })
+    return await res.json() as Promise<Comment[]>
 }
