@@ -38,7 +38,7 @@ const Loader = () => {
 
 /***/ }),
 
-/***/ 3638:
+/***/ 919:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -47,25 +47,11 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ _id_),
-  "getStaticPaths": () => (/* binding */ getStaticPaths),
-  "getStaticProps": () => (/* binding */ getStaticProps)
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
 });
 
 ;// CONCATENATED MODULE: external "next/router"
 const router_namespaceObject = require("next/router");
-;// CONCATENATED MODULE: ./shared/staticPaths.ts
-const staticPostsIdList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const postPaths = staticPostsIdList.map(id => ({
-  params: {
-    id: String(id)
-  }
-}));
-const categoriesToPreRender = ["科学・IT", "社会", "経済"];
-const categoryPaths = categoriesToPreRender.map(category => ({
-  params: {
-    id: encodeURIComponent(category)
-  }
-}));
 // EXTERNAL MODULE: ./components/Loader/index.ts + 2 modules
 var Loader = __webpack_require__(4684);
 // EXTERNAL MODULE: ./components/Section/index.ts + 2 modules
@@ -82,6 +68,8 @@ async function fetchPosts(categoryId) {
   const res = await external_node_fetch_default()(`${config/* config.baseUrl */.v.baseUrl}/categories/${categoryId}`);
   return await res.json();
 }
+// EXTERNAL MODULE: ./store/index.ts
+var store = __webpack_require__(2188);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./pages/category/[id].tsx
@@ -91,7 +79,7 @@ var jsx_runtime_ = __webpack_require__(997);
 
 
 
-const getStaticProps = async ({
+const getServerSideProps = store/* store.getServerSideProps */.h.getServerSideProps(_store => async ({
   params
 }) => {
   if (typeof (params === null || params === void 0 ? void 0 : params.id) !== "string") throw new Error("Unexpected id");
@@ -101,13 +89,7 @@ const getStaticProps = async ({
       posts
     }
   };
-};
-async function getStaticPaths() {
-  return {
-    paths: categoryPaths,
-    fallback: true
-  };
-}
+});
 
 const Category = ({
   posts
@@ -121,6 +103,13 @@ const Category = ({
 };
 
 /* harmony default export */ const _id_ = (Category);
+
+/***/ }),
+
+/***/ 5648:
+/***/ ((module) => {
+
+module.exports = require("next-redux-wrapper");
 
 /***/ }),
 
@@ -278,6 +267,13 @@ module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
+/***/ 6695:
+/***/ ((module) => {
+
+module.exports = require("redux");
+
+/***/ }),
+
 /***/ 7518:
 /***/ ((module) => {
 
@@ -292,7 +288,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,423], () => (__webpack_exec__(3638)));
+var __webpack_exports__ = __webpack_require__.X(0, [922,664,675,181,188,423], () => (__webpack_exec__(919)));
 module.exports = __webpack_exports__;
 
 })();

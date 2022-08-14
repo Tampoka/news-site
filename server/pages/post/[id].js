@@ -71,7 +71,8 @@ async function fetchComments(postId) {
   return await res.json();
 }
 async function submitComment(postId, name, comment) {
-  return await external_node_fetch_default()(`${config/* config.baseUrl */.v.baseUrl}/posts/${postId}/comments`, {
+  console.log(`postId in submit: ${postId}`);
+  const res = await external_node_fetch_default()(`${config/* config.baseUrl */.v.baseUrl}/posts/${postId}/comments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8"
@@ -81,6 +82,7 @@ async function submitComment(postId, name, comment) {
       comment
     })
   });
+  return await res.json();
 }
 // EXTERNAL MODULE: ./store/index.ts
 var store = __webpack_require__(2188);
@@ -147,22 +149,19 @@ const CommentForm = ({
   async function submit(e) {
     e.preventDefault();
     setLoading(true);
-    const response = await submitComment(post, name, value);
-    const comments = await response.json();
-    setLoading(false);
-    /*   if (status === 201) {
-           location.hash = "comments"
-           location.reload()
-       }*/
 
-    setValue("");
-    setName("");
-
-    if (response.status === 200) {
+    try {
+      const comments = await submitComment(post, name, value);
       dispatch({
         type: store_comments/* UPDATE_COMMENTS_ACTION */.z,
         comments
       });
+    } catch (e) {
+      console.log(e.message);
+    } finally {
+      setLoading(false);
+      setValue("");
+      setName("");
     }
   }
 
@@ -281,13 +280,16 @@ const Comments = ({
 
 
 
-/*export const getStaticProps: GetStaticProps<PostProps> = async ({
+/*
+export const getStaticProps: GetStaticProps<PostProps> = async ({
                                                                     params
                                                                 }) => {
     if (typeof params?.id !== "string") throw new Error("Unexpected id")
     const post = await fetchPost(params?.id)
-    return {props: {post}}
-}*/
+    const comments = await fetchComments(params.id) as Comment[]
+    return {props: {post,comments}}
+}
+*/
 const getServerSideProps = store/* store.getServerSideProps */.h.getServerSideProps(store => async ({
   params
 }) => {
