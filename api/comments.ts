@@ -14,7 +14,6 @@ export async function submitComment(
     name: Person,
     comment: string
 ) {
-    console.log(`postId in submit: ${postId}`)
     const res = await fetch(`${config.baseUrl}/posts/${postId}/comments`, {
         method: "POST",
         headers: {"Content-Type": "application/json;charset=utf-8"},
